@@ -1,16 +1,25 @@
 <?php
-
 /*
-* Zipper (Zip/Unzip Files or Folders)
+* Class Zipper (Zip/Unzip Files or Folders)
 *
 * @author		Rudy Mas <rudy.mas@rudymas.be>
 * @copyright	2013 - 2016, rudymas.be. (http://www.rudymas.be/)
 * @license		https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
-* @version		1.2.0
+* @version		1.2.1
 */
+namespace RudyMas\Zipper;
 
+use ZipArchive;
+
+/**
+ * Class Zipper
+ * @package RudyMas\Zipper
+ */
 class Zipper extends ZipArchive
 {
+    /**
+     * @var string $openFile
+     */
     private $openFile;
 
     /**
