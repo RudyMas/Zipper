@@ -1,19 +1,17 @@
 <?php
-/*
-* Class Zipper (Zip/Unzip Files or Folders)
-*
-* @author		Rudy Mas <rudy.mas@rudymas.be>
-* @copyright	2013 - 2016, rudymas.be. (http://www.rudymas.be/)
-* @license		https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
-* @version		1.2.1
-*/
 namespace RudyMas\Zipper;
 
 use ZipArchive;
 
 /**
  * Class Zipper
- * @package RudyMas\Zipper
+ * Zip/Unzip Files or Folders
+ *
+ * @author      Rudy Mas <rudy.mas@rudymas.be>
+ * @copyright   2013 - 2016, rudymas.be. (http://www.rudymas.be/)
+ * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
+ * @version     1.2.2
+ * @package     RudyMas\Zipper
  */
 class Zipper extends ZipArchive
 {
@@ -39,6 +37,7 @@ class Zipper extends ZipArchive
     }
 
     /**
+     * function close()
      * Closing zip-file
      */
     public function close()
@@ -47,6 +46,7 @@ class Zipper extends ZipArchive
     }
 
     /**
+     * function unZip($targetFolder)
      * Unzipping to a specific folder
      * @param string $targetFolder The folder to extract to
      */
@@ -57,6 +57,7 @@ class Zipper extends ZipArchive
     }
 
     /**
+     * function zipThisFile($folder, $fileToZip)
      * Zipping a specific file in a specific folder to the zip-file
      * @param string $folder The folder where the file exists
      * @param string $fileToZip The file to be zipped
@@ -73,6 +74,7 @@ class Zipper extends ZipArchive
     }
 
     /**
+     * function zipAllFilesInFolder($folder)
      * Zipping all files in a specific folder to the zip-file
      * @param string $folder The folder where the files exists
      */
@@ -88,6 +90,7 @@ class Zipper extends ZipArchive
     }
 
     /**
+     * function zipAllFilesAndFoldersInFolder($folder)
      * Zipping all files and folders in a specific folder to the zip-file
      * @param string $folder The folder where the files and folders exists
      */
@@ -109,6 +112,7 @@ class Zipper extends ZipArchive
     }
 
     /**
+     * function error($response)
      * To show the kind of error ZipArchive returned
      * @param string $response
      */
