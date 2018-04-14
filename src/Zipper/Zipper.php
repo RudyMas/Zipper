@@ -1,16 +1,17 @@
 <?php
+
 namespace RudyMas\Zipper;
 
 use ZipArchive;
 
 /**
- * Class Zipper
+ * Class Zipper (PHP version 7.1)
  * Zip/Unzip Files or Folders
  *
- * @author      Rudy Mas <rudy.mas@rudymas.be>
- * @copyright   2013 - 2016, rudymas.be. (http://www.rudymas.be/)
+ * @author      Rudy Mas <rudy.mas@rmsoft.be>
+ * @copyright   2013 - 2018, rmsoft.be. (http://rmsoft.be/)
  * @license     https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
- * @version     1.2.2
+ * @version     1.3.0.22
  * @package     RudyMas\Zipper
  */
 class Zipper extends ZipArchive
@@ -24,7 +25,7 @@ class Zipper extends ZipArchive
      * Zipper constructor.
      * @param string $file
      */
-    public function __construct($file)
+    public function __construct(string $file)
     {
         $this->openFile = $file;
         if (is_file($file)) {
@@ -40,7 +41,7 @@ class Zipper extends ZipArchive
      * function close()
      * Closing zip-file
      */
-    public function close()
+    public function close(): void
     {
         @parent::close() or die("There was an error while closing: '$this->openFile'.");
     }
@@ -50,7 +51,7 @@ class Zipper extends ZipArchive
      * Unzipping to a specific folder
      * @param string $targetFolder The folder to extract to
      */
-    public function unZip($targetFolder)
+    public function unZip(string $targetFolder): void
     {
         if (substr($targetFolder, -1) != '/') $targetFolder = $targetFolder . '/';
         @parent::extractTo($targetFolder) or die("There was an error while unzipping: '$this->openFile'.");
@@ -62,7 +63,7 @@ class Zipper extends ZipArchive
      * @param string $folder The folder where the file exists
      * @param string $fileToZip The file to be zipped
      */
-    public function zipThisFile($folder, $fileToZip)
+    public function zipThisFile(string $folder, string $fileToZip): void
     {
         $map = opendir($folder);
         while ($file = readdir($map)) {
@@ -78,7 +79,7 @@ class Zipper extends ZipArchive
      * Zipping all files in a specific folder to the zip-file
      * @param string $folder The folder where the files exists
      */
-    public function zipAllFilesInFolder($folder)
+    public function zipAllFilesInFolder(string $folder): void
     {
         $map = opendir($folder);
         while ($file = readdir($map)) {
@@ -94,7 +95,7 @@ class Zipper extends ZipArchive
      * Zipping all files and folders in a specific folder to the zip-file
      * @param string $folder The folder where the files and folders exists
      */
-    public function zipAllFilesAndFoldersInFolder($folder)
+    public function zipAllFilesAndFoldersInFolder(string $folder): void
     {
         $map = opendir($folder);
         while ($file = readdir($map)) {
@@ -116,7 +117,7 @@ class Zipper extends ZipArchive
      * To show the kind of error ZipArchive returned
      * @param string $response
      */
-    private function error($response)
+    private function error(string $response): void
     {
         switch ($response) {
             case parent::ER_EXISTS:

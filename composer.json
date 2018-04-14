@@ -2,18 +2,23 @@
     "name": "rudymas/zipper",
     "description": "Zip/Unzip Files or Folders (uses ZipArchive)",
     "type": "library",
-    "license": "GPL-3.0",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Rudy Mas",
-            "email": "rudy.mas@rudymas.be"
+          "email": "rudy.mas@rmsoft.be",
+          "homepage": "http://www.rmsoft.be",
+          "role": "Developer"
         }
     ],
     "minimum-stability": "stable",
     "require": {
-		"php": ">= 5.4.0 || >= 7.0"
+		"php": ">= 7.1"
 	},
 	"autoload": {
+      "classmap": [
+        "src/"
+      ],
 		"psr-4": {
 			"RudyMas\\Zipper\\": "src/"
 		}
